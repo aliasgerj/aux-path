@@ -1,27 +1,26 @@
-# Consumer
+# Using Aux
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+## Navigation
+To navigate to the auxilarry, use: http://localhost:4200/keys/(outlet:home)
 
-## Development server
+## Library code
+This app uses a library - and the library has a component as follows:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```
+import { Component } from '@angular/core';
 
-## Code scaffolding
+@Component({
+  selector: 'lib-my-lib',
+  template: `
+    <p>My lib works!</p>
+    <router-outlet name="outlet"></router-outlet>
+  `,
+  styles: [
+  ]
+})
+export class MyLibComponent {
+  name = 'World';
+}
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+We are going to pass our Hello Component into it. You could pass any component to this outlet - but the component to be passed to this outlet is defined in our app's routing (see our app's module in source code).
